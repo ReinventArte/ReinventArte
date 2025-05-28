@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Hi, this is a template free, please suscribe to my chanel
-AlexCG Design, Thank you, I hope this template helps you -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,162 +7,728 @@ AlexCG Design, Thank you, I hope this template helps you -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <title>ReinventArte</title>
-    <link rel="icon" type="image/png" href="img/icon.png">
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        :root{
+          --color1: rgb(219,144,.5);
+          --color2: rgba(23, 180, 83, 0.877);
+          --color3: rgba(11,194,211, 0.623);
+          --fondo: #f2f2f2;
+          --titulos: 33px;
+          --margenes: 60px;
+          --espacios: 10px;
+          --espacios-contenido:45px;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'open sans';
+          background: var(--fondo);
+          overflow-x: hidden;
+        }
+
+        img{
+          vertical-align: top;
+          max-width: 100%;
+          height: auto;
+        }
+
+        /* Preloader */
+        .hidden{
+          overflow: hidden;
+        }
+
+        .centrado{
+          position: fixed;
+          width: 100vw;
+          height: 100vh;
+          background: #000;
+          z-index: 100;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .lds-facebook {
+          display: inline-block;
+          position: relative;
+          width: 64px;
+          height: 64px;
+        }
+
+        .lds-facebook div {
+          display: inline-block;
+          position: absolute;
+          left: 6px;
+          width: 13px;
+          background: #cef;
+          animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+        }
+
+        .lds-facebook div:nth-child(1) {
+          left: 6px;
+          animation-delay: -0.24s;
+        }
+
+        .lds-facebook div:nth-child(2) {
+          left: 26px;
+          animation-delay: -0.12s;
+        }
+
+        .lds-facebook div:nth-child(3) {
+          left: 45px;
+          animation-delay: 0;
+        }
+
+        @keyframes lds-facebook {
+          0% {
+            top: 6px;
+            height: 51px;
+          }
+          50%, 100% {
+            top: 19px;
+            height: 26px;
+          }
+        }
+
+        /* Header */
+        header{
+          width: 100%;
+          height: 100vh;
+          min-height: 600px;
+          background: linear-gradient(to bottom,
+          rgba(211,135,20, .6),
+          rgba(29,241,171, .6),
+          rgba(7,109,150, .45)
+          ), url('img/fondo.gif') center/cover;
+          background-attachment: fixed;
+          position: relative;
+          display: flex;
+          align-items: center;
+        }
+
+        nav{
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+          z-index: 1000;
+          transition: all 0.3s ease;
+        }
+
+        .nav1{
+          background: transparent;
+          height: 80px;
+          color:#fff;
+        }
+
+        .nav2{
+          background: var(--fondo);
+          height:100px;
+          color:#000;
+        }
+
+        .contenedor-nav{
+          display: flex;
+          margin: auto;
+          width: 90%;
+          justify-content: space-between;
+          align-items: center;
+          max-width:1000px;
+          height:inherit;
+          padding: 0 20px;
+        }
+
+        nav .enlaces a{
+          display: inline-block;
+          padding: 5px 0;
+          margin-right: 17px;
+          font-size: 17px;
+          font-weight: 300;
+          text-decoration: none;
+          border-bottom: 3px solid transparent;
+          color: inherit;
+          transition: all 0.3s ease;
+        }
+
+        nav .enlaces a:hover{
+          border-bottom: 3px solid #1498a4;
+          transition: 0.6s;
+        }
+
+        .logo, .logo img{ 
+          height:80px;
+          max-width: 200px;
+        }
+
+        .icono{
+          display:none;
+          font-size: 24px;
+          padding: 23.5px 20px;
+          cursor: pointer;
+        }
+
+        .textos{
+          width: 100%;
+          height: 100%;
+          display:flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          color:#fff;
+          text-align: center;
+          padding: 100px 20px 20px;
+        }
+
+        .textos>h1{
+          font-size: clamp(40px, 8vw, 80px);
+          margin-bottom: 20px;
+        }
+
+        .textos>h2{
+          font-size: clamp(18px, 4vw, 30px);
+          font-weight: 300;
+          max-width: 800px;
+          line-height: 1.4;
+        }
+
+        /* SVG Wave */
+        .wave-svg {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: auto;
+          z-index: 1;
+        }
+
+        /* Main */
+        .contenedor{
+          margin:auto;
+          padding: var(--margenes) 20px;
+          width: 100%;
+          max-width: 1000px;
+          text-align: center;
+        }
+
+        .contenedor h3{
+          font-size: clamp(24px, 5vw, var(--titulos));
+          color: var(--color1);
+          margin-bottom: var(--espacios);
+          padding-top: 10px;
+        }
+
+        .contenedor p{
+          font-size: 16px;
+          font-weight: 300;
+          color: var(--color1);
+          line-height: 1.6;
+        }
+
+        .after::after{
+          content:'';
+          display: block;
+          margin: auto;
+          margin-top: var(--espacios);
+          width: 100px;
+          height: 2px;
+          background: var(--color1);
+          margin-bottom: var(--espacios-contenido);
+        }
+
+        /* Swiper Styles */
+        .swiper-container {
+          position: relative;
+          width: 100%;
+          padding: 20px 0;
+        }
+
+        .swiper {
+          width: 100%;
+          max-width: 800px;
+          padding: 40px 20px 100px 20px;
+          margin: 0 auto;
+        }
+
+        .swiper-slide {
+          width: 200px;
+          height: 300px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+
+        .swiper-slide .slide-content {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .swiper-slide .slide-content img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 30px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          background: white;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          margin-top: -25px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+          content: "";
+        }
+
+        .swiper-button-prev .bx,
+        .swiper-button-next .bx {
+          font-size: 25px;
+          color: #333;
+        }
+
+        /* About Section */
+        .about{
+          background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/teclado.jpg') center/cover;
+          padding: 60px 0;
+          color: white;
+        }
+
+        .servicios{
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 40px;
+          margin-top: 40px;
+        }
+
+        .caja-servicios{
+          text-align: center;
+          padding: 20px;
+        }
+
+        .caja-servicios img {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 20px;
+        }
+
+        .caja-servicios>h4{
+          margin-bottom: var(--espacios);
+          font-size: 20px;
+          color: white;
+        }
+
+        .caja-servicios>p{
+          text-align: left;
+          line-height: 1.6;
+        }
+
+        .lista-ods, .lista-pilares {
+          list-style: none;
+          padding: 0;
+          text-align: left;
+        }
+
+        .lista-ods li, .lista-pilares li {
+          margin: 8px 0;
+          font-size: 14px;
+          font-weight: bold;
+          color: #d4a017;
+          line-height: 1.4;
+        }
+
+        .lista-pilares li {
+          font-weight: normal;
+        }
+
+        /* Work Section */
+        .work {
+          background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('img/arte.png') center/cover;
+          padding: 60px 0;
+        }
+
+        .botones-work{
+          margin: 40px 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .botones-work ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          list-style: none;
+          justify-content: center;
+        }
+
+        .botones-work li{
+          padding: 8px 16px;
+          border: 1px solid var(--color1);
+          list-style: none;
+          color: var(--color1);
+          cursor: pointer;
+          border-radius: 5px;
+          transition: all 0.3s ease;
+          font-size: 14px;
+        }
+
+        .botones-work li:hover,
+        .botones-work .active{
+          background: var(--color1);
+          color:#fff;
+        }
+
+        .galeria-work{
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+        }
+
+        .cont-work{
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          border-radius: 10px;
+          overflow: hidden;
+          background: white;
+          transition: transform 0.3s ease;
+        }
+
+        .cont-work:hover {
+          transform: translateY(-5px);
+        }
+
+        .img-work{
+          height: 300px;
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .img-work img{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+
+        .cont-work:hover .img-work img {
+          transform: scale(1.05);
+        }
+
+        .textos-work{
+          padding: 20px;
+          text-align: center;
+        }
+
+        .textos-work h4{
+          font-weight: 600;
+          color: #333;
+          font-size: 16px;
+        }
+
+        /* Footer */
+        footer{
+          background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/teclado.jpg') center/cover;
+          color: white;
+          padding: 60px 0 20px;
+        }
+
+        .footer {
+          text-align: center;
+        }
+
+        .marca-logo{
+          width: 200px;
+          margin: 0 auto 40px;
+        }
+
+        .marca-logo img{
+          width: 100%;
+          filter: brightness(0) invert(1);
+        }
+
+        .iconos{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+          margin-bottom: 30px;
+          flex-wrap: wrap;
+        }
+
+        .iconos a {
+          color: white;
+          transition: all 0.3s ease;
+        }
+
+        .iconos a:hover {
+          transform: translateY(-3px);
+        }
+
+        .fab{
+          font-size: 40px;
+          color: #FFF;
+        }
+
+        .iconos img {
+          width: 40px;
+          height: 40px;
+          filter: brightness(0) invert(1);
+        }
+
+        footer p{
+          margin-top: 20px;
+          font-size: 14px;
+          opacity: 0.8;
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px){
+          :root {
+            --margenes: 40px;
+            --espacios-contenido: 30px;
+          }
+
+          .nav2{
+            color: #fff;
+          }
+
+          .icono{
+            display: block;
+          }
+
+          .enlaces{
+            position: fixed;
+            top: 80px;
+            background: rgba(44, 62, 80, 0.95);
+            left: 0;
+            height: 100vh;
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s ease;
+            backdrop-filter: blur(10px);
+          }
+
+          .enlaces.active {
+            width: 100%;
+          }
+
+          .enlaces a{
+            display: block;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: rgba(52, 73, 94, 0.9);
+            color:#fff;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+          }
+
+          .textos {
+            padding: 120px 20px 40px;
+          }
+
+          .swiper {
+            padding: 20px 10px 60px 10px;
+          }
+
+          .swiper-slide {
+            width: 150px;
+            height: 250px;
+          }
+
+          .swiper-button-prev,
+          .swiper-button-next {
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+          }
+
+          .swiper-button-prev {
+            left: 10px;
+          }
+
+          .swiper-button-next {
+            right: 10px;
+          }
+
+          .servicios {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+
+          .galeria-work {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .botones-work ul {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .iconos {
+            gap: 20px;
+          }
+
+          .marca-logo {
+            width: 150px;
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          :root {
+            --margenes: 30px;
+            --espacios-contenido: 20px;
+          }
+
+          .contenedor {
+            padding: var(--margenes) 15px;
+          }
+
+          .swiper-slide {
+            width: 120px;
+            height: 200px;
+          }
+
+          .botones-work li {
+            font-size: 12px;
+            padding: 6px 12px;
+          }
+
+          .iconos {
+            gap: 15px;
+          }
+
+          .fab {
+            font-size: 30px;
+          }
+
+          .iconos img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+    </style>
 </head>
 
 <body class="hidden">
     <div class="centrado" id="onload">
         <div class="lds-facebook"><div></div><div></div><div></div></div>
     </div>
+    
     <header>
         <nav id="nav" class="nav1">
             <div class="contenedor-nav">
                 <div class="logo">
-                    <img src="img/logo.png" alt="">
+                    <img src="img/logo.png">
                 </div>
                 <div class="enlaces" id="enlaces">
                     <a href="#" id="enlace-inicio" class="btn-header">Inicio</a>
-                    <a href="#" id="enlace-equipo" class="btn-header">Ejecucción</a>
-                    <a href="#" id="enlace-servicio" class="btn-header">Propósitos</a>
-                    <a href="#" id="enlace-trabajo" class="btn-header">Miembros</a>
-                    <a href="#" id="enlace-contacto" class="btn-header">Contacto</a>
+                    <a href="#equipo" id="enlace-equipo" class="btn-header">Ejecución</a>
+                    <a href="#servicio" id="enlace-servicio" class="btn-header">Propósitos</a>
+                    <a href="#trabajo" id="enlace-trabajo" class="btn-header">Miembros</a>
+                    <a href="#contacto" id="enlace-contacto" class="btn-header">Contacto</a>
                 </div>
                 <div class="icono" id="open">
                     <span>&#9776;</span>
                 </div>
             </div>
         </nav>
+        
         <div class="textos">
             <h1>ReinventArte</h1>
             <h2>Reinventando a Panamá a través del arte sostenible</h2>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f2f2f2" fill-opacity="1" d="M0,96L60,90.7C120,85,240,75,360,101.3C480,128,600,192,720,218.7C840,245,960,235,1080,229.3C1200,224,1320,224,1380,224L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
         </div>
+        
+        <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f2f2f2" fill-opacity="1" d="M0,96L60,90.7C120,85,240,75,360,101.3C480,128,600,192,720,218.7C840,245,960,235,1080,229.3C1200,224,1320,224,1380,224L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
     </header>
-   <main>
-    <section>
-          <div class="team contenedor" id="equipo">
-            <h3>Fundación Hogar de Niñas de la Capital</h3>
-            <p class="after">Conoce a la gente asombrosa y creativa</p>
-          </div>
-          <div class="swiper-container">
-            <div class="swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="slide-content">
-                    <img src="img/p0.png"/>
-                  </div>
-                  
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide-content">
-                    <img src="img/p1.jpg"/>
 
-                  </div>
-                 
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide-content">
-                   <img src="img/p2.jpg"/>
-
-                  </div>
-                  
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide-content">
-                    <img src="img/p3.jpg"/>
-
-                  </div>
-                  
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide-content">
-                    <img src="img/p4.jpg"/>
-
-                  </div>
-                  
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide-content">
-                    <img src="img/p5.jpg"/>
-
-                  </div>
-                  
-                </div>
-
-              </div>
-
+    <main>
+        <section>
+            <div class="team contenedor" id="equipo">
+                <h3>Fundación Hogar de Niñas de la Capital</h3>
+                <p class="after">Conoce a la gente asombrosa y creativa</p>
             </div>
+            
+            <div class="swiper-container">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                <img src="img/p0.png" alt="Persona 1"/>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                <img src="img/p1.jpg" alt="Persona 2"/>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                <img src="img/p2.jpg" alt="Persona 3"/>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                <img src="img/p3.jpg" alt="Persona 4"/>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                <img src="img/p4.jpg" alt="Persona 5"/>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                <img src="img/p5.jpg" alt="Persona 6"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="swiper-button-prev">
-              <i class='bx bx-left-arrow-alt'></i>
-              </svg>
-
+                <div class="swiper-button-prev">
+                    <i class='bx bx-left-arrow-alt'></i>
+                </div>
+                <div class="swiper-button-next">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </div>
             </div>
-            <div class="swiper-button-next">
-              <i class='bx bx-right-arrow-alt' ></i>
-
-            </div>
-          </div>
-
         </section>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
 
-        <script type="text/javascript">
-
-        var swiper = new Swiper(".swiper", {
-          effect: "coverflow",
-          grabCursor: true,
-          centeredSlides: true,
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 4,
-            slideShadows: true
-          },
-          loop: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
-          },
-          keyboard: {
-            enabled: true
-          },
-          mousewheel: {
-            thresholdDelta: 70
-          },
-          breakpoints: {
-            560: {
-              slidesPerView: 2.5
-            },
-            768: {
-              slidesPerView: 3
-            },
-            1024: {
-              slidesPerView: 3
-            }
-          }
-        });
-
-        </script>
-    <div class="centrado" id="onload">
-        <div class="lds-facebook"><div></div><div></div><div></div></div>
-    </div>
         <section class="about" id="servicio">
             <div class="contenedor">
                 <h3>¿A qué se debe el proyecto?</h3>
                 <p class="after">Siempre mejorando para ti</p>
                 <div class="servicios">
                     <div class="caja-servicios">
-                        <img src="img/heart.png" alt="">
+                        <img src="img/heart.png" alt="Corazón">
                         <h4>Creativos y asombrosos</h4>
                         <p>A través de capacitaciones y talleres prácticos e interactivos en sostenibilidad, fortaleceremos la conciencia ambiental y las habilidades emprendedoras de las jóvenes seleccionados. Esto les permitirá convertirse en agentes replicadores que promuevan una cultura de sostenibilidad a través del arte.</p>
                     </div>
                     <div class="caja-servicios">
-                        <img src="img/responsive.png" alt="">
+                        <img src="img/responsive.png" alt="Responsive">
                         <h4>ODS</h4>
                         <ul class="lista-ods">
                             <li><strong>4.</strong> Educación de calidad</li>
@@ -175,7 +739,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                         </ul>
                     </div>
                     <div class="caja-servicios">
-                        <img src="img/efectos.png" alt="">
+                        <img src="img/efectos.png" alt="Efectos">
                         <h4>Pilares de índice de competitividad</h4>
                         <ul class="lista-pilares">
                             <li><strong>Pilar 1. Instituciones:</strong> Promover que la institución ofrezca programas que generen en las jóvenes desarrollo creativo a la par de una conciencia social a nivel integral, buscando un futuro mejor para todos.</li>
@@ -187,7 +751,8 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
             </div>
         </section>
-        <section class="work contenedor" id="trabajo" class="test">
+
+        <section class="work contenedor" id="trabajo">
             <h3>¡Nuestro distinguido equipo!</h3>
             <p class="after">Hacemos de algo simple algo extraordinario</p>
             <div class="botones-work">
@@ -201,7 +766,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
             <div class="galeria-work">
                 <div class="cont-work programacion">
                     <div class="img-work">
-                        <img src="img/liah.png" alt="">
+                        <img src="img/liah.png" alt="Liah">
                     </div>
                     <div class="textos-work">
                         <h4>Coordinadora</h4>
@@ -209,7 +774,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work programacion">
                     <div class="img-work">
-                        <img src="img/deivi.png" alt="">
+                        <img src="img/deivi.png" alt="Deivi">
                     </div>
                     <div class="textos-work">
                         <h4>Sub-coordinador</h4>
@@ -217,7 +782,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work programacion">
                     <div class="img-work">
-                        <img src="img/yiniveth.png" alt="">
+                        <img src="img/yiniveth.png" alt="Yiniveth">
                     </div>
                     <div class="textos-work">
                         <h4>Encargada de logística</h4>
@@ -225,7 +790,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work diseño">
                     <div class="img-work">
-                        <img src="img/sara.png" alt="">
+                        <img src="img/sara.png" alt="Sara">
                     </div>
                     <div class="textos-work">
                         <h4>Encargada de redes sociales - IG</h4>
@@ -233,7 +798,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work diseño">
                     <div class="img-work">
-                        <img src="img/ana.png" alt="">
+                        <img src="img/ana.png" alt="Ana">
                     </div>
                     <div class="textos-work">
                         <h4>Secretaria general</h4>
@@ -241,7 +806,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work diseño">
                     <div class="img-work">
-                        <img src="img/karly.png" alt="">
+                        <img src="img/karly.png" alt="Karly">
                     </div>
                     <div class="textos-work">
                         <h4>Coordinadora administrativa</h4>
@@ -249,7 +814,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work marketing">
                     <div class="img-work">
-                        <img src="img/joshua.png" alt="">
+                        <img src="img/joshua.png" alt="Joshua">
                     </div>
                     <div class="textos-work">
                         <h4>Vocero</h4>
@@ -257,7 +822,7 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work marketing">
                     <div class="img-work">
-                        <img src="img/jhuliann.png" alt="">
+                        <img src="img/jhuliann.png" alt="Jhuliann">
                     </div>
                     <div class="textos-work">
                         <h4>Coordinador de presupuesto</h4>
@@ -265,51 +830,162 @@ AlexCG Design, Thank you, I hope this template helps you -->
                 </div>
                 <div class="cont-work marketing">
                     <div class="img-work">
-                        <img src="img/harold.png" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Encargado de redes sociales - TikTok</h4>
-                    </div>
-                </div>
-                <div class="cont-work marketing">
-                    <div class="img-work">
-                        <img src="img/kristell.png" alt="">
+                        <img src="img/kristell.png" alt="Kristell">
                     </div>
                     <div class="textos-work">
                         <h4>Coordinadora de alianzas</h4>
                     </div>
                 </div>
             </div>
+        </section>
     </main>
+
     <footer id="contacto">
         <div class="footer contenedor">
             <div class="marca-logo">
-                <img src="img/logo.png" alt="">
+                <img src="img/logo.png" alt="ReinventArte">
             </div>
             <div class="iconos">
-                <a href="https://www.instagram.com/canaldepanama?igsh=N2FzangzbW90YWJ0" target="_blank">
-                    <img src="img/acp.png" alt="">
+                <a href="https://www.instagram.com/canaldepanama" target="_blank">
+                    <img src="img/acp.png" alt="ACP">
                 </a>
-
-                <a href="https://www.instagram.com/reinventarte.pa?igsh=MTRlaXFyeHl6cmJ1Mg==" target="_blank">
+                <a href="https://www.instagram.com/reinventarte.pa" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
-
-                <a href="reinventarte.pa@gmail.com" target="_blank">
+                <a href="mailto:reinventarte.pa@gmail.com" target="_blank">
                     <i class="fab fa-telegram-plane"></i>
                 </a>
-
-                <a href="https://www.instagram.com/jovenesuxlae?igsh=bXluN2N4eG56d2lr" target="_blank">
-                    <img src="img/juxlae.png" alt="">
+                <a href="https://www.instagram.com/jovenesuxlae" target="_blank">
+                    <img src="img/juxlae.png" alt="JUXLAE">
                 </a>
-
             </div>
             <p>La pasión e innovación es lo que nos distingue del resto</p>
         </div>
-
     </footer>
-    <script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/filtro.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('onload');
+            document.body.classList.remove('hidden');
+            preloader.style.display = 'none';
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('open');
+        const menu = document.getElementById('enlaces');
+        
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const menuLinks = document.querySelectorAll('.enlaces a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                nav.classList.remove('nav1');
+                nav.classList.add('nav2');
+            } else {
+                nav.classList.remove('nav2');
+                nav.classList.add('nav1');
+            }
+        });
+
+        // Swiper initialization
+        var swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 4,
+                slideShadows: true
+            },
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            keyboard: {
+                enabled: true
+            },
+            mousewheel: {
+                thresholdDelta: 70
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.5
+                },
+                480: {
+                    slidesPerView: 2
+                },
+                768: {
+                    slidesPerView: 2.5
+                },
+                1024: {
+                    slidesPerView: 3
+                }
+            }
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter');
+        const workItems = document.querySelectorAll('.cont-work');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-nombre');
+                
+                workItems.forEach(item => {
+                    if (filterValue === 'todos' || item.classList.contains(filterValue)) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
